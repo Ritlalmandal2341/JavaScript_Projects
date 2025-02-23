@@ -25,7 +25,7 @@ html, body{
     padding: 12px;
     width: 200px;
     cursor: pointer;
-    
+    height:50px;
 }
 #add-btn:hover{
     background-color: #091291;
