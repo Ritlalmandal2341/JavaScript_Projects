@@ -1,22 +1,19 @@
-function changebackground(color) {
-  document.body.style.backgroundColor = color;
-}
+const addBtn = document.getElementById('add-btn');
+const todoInput = document.getElementById('todo-input');
+const todoItemsContainer = document.getElementById('todo-items-container');
 
-const themeButton = document.getElementById('theme-button');
-// document.getElementById(id).style.color = "#ff0000";
-themeButton.addEventListener('click', () => {
-    console.log(document.body.style.backgroundColor);
-    // document.getElementById('main').style.color = "yellow";
-  
-  const currentColor = document.body.style.backgroundColor;
-  if(!currentColor || currentColor == 'white') {
-    changebackground('black');
-    themeButton.innerText = 'Light Mode';
-    document.getElementById('main').style.color = "white";
+addBtn.addEventListener('click', () =>{
+    const value = todoInput.value;
+    // console.log("user inter",value);
+    const li = document.createElement('li');
+    li.innerText = value;
+    const delButton = document.createElement('button')
+    delButton.innerText = 'Delete';
     
-  } else {
-    changebackground('white');
-    themeButton.innerText = 'Dark mode';
-    document.getElementById('main').style.color = "black";
-  }
-});
+    delButton.addEventListener('click', function(){
+        li.remove(li);
+    })
+    li.appendChild(delButton);
+    todoItemsContainer.appendChild(li);
+    todoInput.value = '';
+})
